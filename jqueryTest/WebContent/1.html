@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function ChartInfo(eventName){
+ 	this.eventName = eventName;
+ }
+ var qq = new ChartInfo('dd');
+ var jsonTemp = {"a":1, "test":[qq, qq]}
+ alert(JSON.stringify(jsonTemp))
+</script>
+</head>
+<body>
+
+</body>
+</html>

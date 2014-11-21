@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>gridster.js Test Suite</title>
+
+<link rel="stylesheet" type="text/css" href="/jqueryTest/js/gridster/jquery.gridster.css">
+<script type="text/javascript" src="/jqueryTest/js/jquery/jquery-1.11.1.js"></script>
+<script src="/jqueryTest/js/gridster/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
+<script src="/jqueryTest/js/gridster/jquery.gridster_test.js" type="text/javascript" charset="utf-8"></script>
+<script>
+$(document).ready(function(){
+	/* alert(  $(".gridster ul"))
+	  $(".gridster ul").gridster({
+	        widget_margins: [10, 10],
+	        widget_base_dimensions: [140, 140]
+	    }); */
+
+    var gridster;
+
+
+
+gridster = $(".gridster ul").gridster({
+	widget_base_dimensions:[150, 150],
+	widget_margins: [10, 10],
+
+	resize: {
+		enabled: false
+	}
+}).data('gridster');
+
+
+
+  
+});
+
+</script>
+<style>
+.gridster * {
+  margin:0;
+  padding:0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+/*/
+/* demo
+/*/
+
+
+body {
+    font-size: 16px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #444;
+    margin: 30px 40px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+/*/
+/* gridster
+/*/
+
+.gridster ul {
+    background-color: #ffffff;
+}
+
+.gridster li {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 100%;
+}
+
+
+.gridster {
+    margin: 0 auto;
+
+    opacity: .8;
+
+    -webkit-transition: opacity .6s;
+    -moz-transition: opacity .6s;
+    -o-transition: opacity .6s;
+    -ms-transition: opacity .6s;
+    transition: opacity .6s;
+    
+    
+
+}
+
+.gridster .gs-w {
+    background: #DDD;
+    cursor: pointer;
+}
+
+.gridster .player {
+    background: #BBB;
+}
+
+
+.gridster .preview-holder {
+    border: none!important;
+    background: red!important;
+}
+
+</style>
+</head>
+<body>
+	<div class="gridster" style="height: 640px; width: 960px;border:1px solid black; position: relative;">
+	    <ul>
+	        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1"><div>ddd</div></li>
+	        <li data-row="2" data-col="1" data-sizex="3" data-sizey="2"><div>dd</div> </li> 
+	        <li data-row="2" data-col="2" data-sizex="2" data-sizey="1">55</li> 
+	        <li data-row="3" data-col="1" data-sizex="5" data-sizey="1">ㄱ </li>
+
+	    </ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/jqueryTest/js/jquery/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="/jqueryTest/js/jquery_ui/jquery-ui.js"></script>
+<style type="text/css">
+
+div.content{
+	border:1px solid black;
+	width:500px;
+	height:100%;
+}
+
+ul.ulLayer{
+	border:1px solid blue;
+	list-style:none;
+	padding:0px;
+}
+li.liLayer{
+	border:1px solid orange;
+	background-color:orange;
+	width:100px;
+	height:100px;
+	margin:10px;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("li.liLayer").draggable({
+		cursor: "move"
+		, containment: ".ulLayer"
+		, scroll: false 
+		//, helper: "clone"
+		, refreshPositions: true
+		, connectToSortable: true
+	});
+	
+});
+
+
+</script>
+</head>
+<body>
+	<div class="content">
+		<ul class="ulLayer">
+			<li class="liLayer">1</li>
+			<li class="liLayer">2</li>
+			<li class="liLayer">3</li>
+			<li class="liLayer">4</li>
+		</ul>	
+	</div>
+</body>
+</html>
