@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/jqueryTest/js/jquery_ui/jquery-ui.css">
+<script type="text/javascript" src="/jqueryTest/js/jquery/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="/jqueryTest/js/jquery_ui/jquery-ui.js"></script>
+<style type="text/css">
+
+.contentsLayer{
+	 height:100%;
+	 width:100%;
+	 overflow:auto;
+	 border:1px solid blue;
+}
+.layer2{
+	 clear:both;
+	 border:1px solid red;
+	 margin:5px;
+	 width:100%;
+
+}
+.layer{
+	float:left;
+	border:1px solid red;
+	margin:5px;
+	width:30%;
+	min-height:300px;
+}
+.box.big{
+	width:80%;
+}
+.box{
+	 width:80%;
+	 margin:5px;
+
+	 border:2px solid black;
+
+}
+
+.box .title{
+	position: relative;
+	border:1px solid black;
+	padding:2px;
+	text-align:center;
+
+}
+
+.box .content{
+	 height:80px;
+	 border:1px solid black;
+	padding:10px;
+	 background-color: #E6E6E6;
+}
+
+.box-toggle {
+	position: absolute;
+	
+	top: 50%;
+	
+	right: 0;
+	margin-top: -8px;
+}
+ .highlight {
+         border: 1px solid red;
+         font-weight: bold;
+         font-size: 45px;
+         background-color: #333333;
+      }
+
+</style>
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+	$( ".contentsLayer" ).sortable({
+
+	});
+	 $( ".contentsLayer" ).disableSelection();
+
+	$( ".layer" ).sortable({
+		//cancel: ".box.big.disabled"
+		connectWith: ".layer"
+		, containment: ".contentsLayer"
+		, cursor: "move"
+		, placeholder: "highlight"
+		, forcePlaceholderSize: true
+		//ui.item.parent().children().index()
+		//ui.item.parent('div').attr('id')
+		, start: function (event, ui) {
+			$(ui.item).children('div.content').animate({
+				backgroundColor: "#81BEF7"
+			}, 500 );
+
+
+		}
+		, stop: function (event, ui) {
+			$(ui.item).children('div.content').animate({
+				backgroundColor: "#E6E6E6"
+			}, 500 );
+			
+		}
+
+	});
+
+	$( ".layer" ).disableSelection();
+	
+	$( ".box" )
+	//.addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+	.find( ".title" )
+	.addClass( "ui-widget-header ui-corner-all" )
+	.prepend( "<span class='ui-icon ui-icon-minusthick box-toggle'></span>");
+
+	 $( ".box-toggle" ).click(function() {
+		var icon = $( this );
+		icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+	
+		icon.closest( ".box" ).find( ".content" ).toggle("blind",{},500);
+	});
+
+
+
+
+});
+
+
+</script>
+</head>
+<body>
+<div class="contentsLayer">
+	<div id="firstLayer" class="layer2">
+		<div class="box big">
+			<div class="title">1</div>
+			<div class="content">1 content</div>
+		</div>
+	</div>
+	<div id="a" class="layer">
+		<div class="box">
+			<div class="title">a2</div>
+			<div class="content">a2 content</div>
+		</div>
+		<div class="box">
+			<div class="title">a3</div>
+			<div class="content">a3 content</div>
+		</div>
+		<div class="box">
+			<div class="title">a4</div>
+			<div class="content">a4 content</div>
+		</div>
+	</div>
+	<div id="b" class="layer">
+		<div class="box">
+			<div class="title">b2</div>
+			<div class="content">b2 content</div>
+		</div>
+		<div class="box">
+			<div class="title">b3</div>
+			<div class="content">a2 content</div>
+		</div>
+		<div class="box">
+			<div class="title">a4</div>
+			<div class="content">a4 content</div>
+		</div>
+	</div>
+	<div id="c" class="layer">
+		<div class="box">
+			<div class="title">c2</div>
+			<div class="content">c2 content</div>
+		</div>
+		<div class="box">
+			<div class="title">c3</div>
+			<div class="content">c4 content</div>
+		</div>
+		<div class="box">
+			<div class="title">c5</div>
+			<div class="content">c5 content</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
